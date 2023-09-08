@@ -24,7 +24,6 @@ galleryItems.forEach((item) => {
   galleryContainer.appendChild(galleryItem);
 });
 
-// Inicjalizacja SimpleLightbox po utworzeniu elementów galerii
 const lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250,
