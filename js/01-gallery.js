@@ -1,12 +1,10 @@
 import { galleryItems } from "./gallery-items.js";
 import * as basicLightbox from "basiclightbox";
-// Change code below this line
-console.log(galleryItems);
 
 const galleryContainer = document.querySelector(".gallery");
 
 galleryItems.forEach((item) => {
-  const galleryItem = document.createElement("div");
+  const galleryItem = document.createElement("li");
   galleryItem.classList.add("gallery__item");
 
   const galleryLink = document.createElement("a");
@@ -16,11 +14,10 @@ galleryItems.forEach((item) => {
   const galleryImage = document.createElement("img");
   galleryImage.classList.add("gallery__image");
   galleryImage.src = item.preview;
-  galleryImage.alt = item.description;
   galleryImage.dataset.source = item.original;
+  galleryImage.alt = item.description;
 
   galleryLink.appendChild(galleryImage);
-
   galleryItem.appendChild(galleryLink);
 
   galleryContainer.appendChild(galleryItem);
