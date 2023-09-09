@@ -1,12 +1,11 @@
 import { galleryItems } from "./gallery-items.js";
-// Change code below this line
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 const galleryContainer = document.querySelector(".gallery");
 
 galleryItems.forEach((item) => {
-  const galleryItem = document.createElement("a");
+  const galleryItem = document.createElement("div"); // Zmieniamy na div
   galleryItem.classList.add("gallery__item");
 
   const galleryLink = document.createElement("a");
@@ -23,6 +22,20 @@ galleryItems.forEach((item) => {
 
   galleryContainer.appendChild(galleryItem);
 });
+
+const galleryHTML = galleryItems
+  .map(
+    (item) => `
+      <li>
+        <a class="gallery__item" href="${item.original}">
+          <img class="gallery__image" src="${item.preview}" alt="${item.description}" />
+        </a>
+      </li>
+    `
+  )
+  .join("");
+
+galleryContainer.innerHTML = `<ul class="gallery">${galleryHTML}</ul>`;
 
 const lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
