@@ -29,10 +29,10 @@ galleryContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains("gallery__image")) {
     const imageUrl = event.target.dataset.source;
 
-    const modal = basicLightbox.create(
+    const instance = basicLightbox.create(
       `<img src="${imageUrl}" width="800" height="600">`
     );
 
-    modal.show();
+    instance.show();
   }
 });
