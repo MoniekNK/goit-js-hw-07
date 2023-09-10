@@ -1,4 +1,5 @@
 import { galleryItems } from "./gallery-items.js";
+console.log(galleryItems);
 const galleryList = document.querySelector(".gallery");
 const galleryHTML = galleryItems
   .map(
@@ -19,5 +20,3 @@ const lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250,
 });
-
-console.log(galleryItems);
