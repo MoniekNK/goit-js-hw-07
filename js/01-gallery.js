@@ -22,16 +22,29 @@ galleryItems.forEach((item) => {
   galleryContainer.appendChild(galleryItem);
 });
 
+let instance = null;
+
 galleryContainer.addEventListener("click", (event) => {
   event.preventDefault();
 
   if (event.target.classList.contains("gallery__image")) {
     const imageUrl = event.target.dataset.source;
 
-    const instance = basicLightbox.create(
+    instance = basicLightbox.create(
       `<img src="${imageUrl}" width="800" height="600">`
     );
 
     instance.show();
+
+    window.addEventListener("keydown", onEsc);
   }
 });
+
+function onEsc(event) {
+  if (event.key === "Escape") {
+    if (instance) {
+      instance.close();
+      window.removeEventListener("keydown", onEsc);
+    }
+  }
+}
