@@ -10,7 +10,7 @@ const galleryHTML = galleryItems
   )
   .join("");
 
-galleryContainer.insertAdjacentHTML("beforeend", galleryHtml);
+galleryList.insertAdjacentHTML("beforeend", galleryHTML);
 
 const lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
