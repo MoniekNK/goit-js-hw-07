@@ -2,10 +2,10 @@ import { galleryItems } from "./gallery-items.js";
 const galleryList = document.querySelector(".gallery");
 const galleryHTML = galleryItems
   .map(
-    (item) => `
+    (item) => `<li>
           <a class="gallery__item" href="${item.original}">
             <img class="gallery__image" src="${item.preview}" alt="${item.description}" />
-          </a>
+          </a> </li>
       `
   )
   .join("");
